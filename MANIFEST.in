@@ -1,0 +1,2 @@
+include common/file_config.yml
+include common/config.yml

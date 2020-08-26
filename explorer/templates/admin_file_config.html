@@ -1,0 +1,37 @@
+{% extends 'admin.html' %}
+
+{% block title %}Admin Data{% endblock %}
+
+{% block content %}
+<form method="POST">
+	<div class="row">
+		<h2>File Configurations</h2>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-md-2">
+			<label for="nondirectional_fields">Nondirectional Fields</label>
+			<input type="text" class="form-control" id="nondirectional_fields" name="nondirectional_fields" placeholder="Nondirectional Fields">
+		</div>
+        <div class="form-group col-md-2">
+			<label for="directional_fields">Directional Fields</label>
+			<input type="text" class="form-control" id="directional_fields" name="directional_fields" placeholder="Directional Fields">
+		</div>
+        <div class="form-group col-md-2">
+			<label for="biflow_src_prfx">Biflow Source Prefix</label>
+			<input type="text" class="form-control" id="biflow_src_prfx" name="biflow_src_prfx" value="src">
+		</div>
+        <div class="form-group col-md-2">
+			<label for="biflow_dst_prfx">Biflow Destination Prefix</label>
+			<input type="text" class="form-control" id="biflow_dst_prfx" name="biflow_dst_prfx" value="dst">
+		</div>
+        <div class="form-group col-md-2">
+			<label for="hierarchy">Hierarchy</label>
+			<input type="text" class="form-control" id="hierarchy" name="hierarchy" placeholder="Hierarchy">
+		</div>
+
+		<div class="form-group col-md-1">
+			<label for="labelButton">Submit</label>
+			<button type="submit" id="labelButton" class="btn btn-primary">Submit</button>
+		</div>
+	</div>
+</form>{% endblock %}

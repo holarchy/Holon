@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+	  {% for lvl, name, val, score in trace.prediction_trace %}
+	  {% if loop.last %}
+	  <li class="breadcrumb-item">{{name}}:{{val}} ({{score}})</li>
+	  {% else %}
+	  <li class="breadcrumb-item"><a href="{{ trace.build_url(lvl) }}">{{name}}:{{val}} ({{score}})</a></li>
+	  {% endif %}
+	  {% endfor %}
+  </ol>
+</nav>
+{% endblock %}
+
+{% block local_navbar %}
+<form method="POST">
+	<div class="row">
+		<h2>Label</h2>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-md-2">
+			<label for="userName">Username</label>
+			<input type="text" class="form-control" id="userName" name="userName" placeholder="Username">
+		</div>
+		<div class="form-group col-md-2">
+			<label for="threatLevel">Threat Level</label>
+			<select id="threatLevel" name="threatLevel" class="form-control">
+				<option selected>Benign</option>
+				<option>Malicious</option>
+				<option>Unknown</option>
+			</select>
+		</div>
+		<div class="form-group col-md-2">
+			<label for="classifier">Classifier</label>
+			<select id="classifier" name="classifier" class="form-control">
+				<option selected>DoS</option>
+				<option>Scanning</option>
+				<option>Exfiltration</option>
+				<option>Other - Malicious</option>
+				<option>Other - Benign</option>
+			</select>
+		</div>
+		<div class="form-group col-md-5">
+			<label for="description">Additional Description</label>
+			<textarea class="form-control" id="description" name="description" rows="1" placeholder="(optional)"></textarea>
+		</div>
+		<div class="form-group col-md-1">
+			<label for="labelButton">Submit</label>
+			<button type="submit" id="labelButton" class="btn btn-primary">Submit</button>
+		</div>
+	</div>
+</form>
+
+<div class="row">
+	<table class="ctr">
+		<thead>
+		<tr class="bg-secondary text-white">
+			<th>Username</th>
+			<th>Threat Level</th>
+			<th>Classifier</th>
+			<th>Additional Description</th>
+			<th>Delete</th>
+		</tr>
+		</thead>
+		<tbody class="text-secondary">
+		{% for val in labels %}
+		<tr>
+			<td>{{ val.get('userName') }}</td>
+			<td>{{ val.get('threatLevel') }}</td>
+			<td>{{ val.get('classifier') }}</td>
+			<td>{{ val.get('description') }}</td>
+			<td><form method='post'><button type='submit' name={{loop.index}} value="true"><i class="fas fa-trash"></i></button></form></td>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</div>
+<hr>
+{% endblock %}
+
+{% block object_bar %}
+	{% if trace.biflow_object is not none %}
+
+    <div class="row ctr border border_secondary rounded">
+        <div class="col-1"></div>
+        <div class="col">
+            <h1 class="lt">{{ trace.biflow_object }}: {{ trace.field_value }} </h1>
+        </div>
+        <div class="col-1"></div>
+    </div>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,153 @@
+{% extends 'admin.html' %}
+
+{% block title %}Admin Data{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <H4>Raw Data</H4>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="small-txt">
+                <thead>
+                <tr class="bg-secondary text-white">
+                    <th>Directory</th>
+                    <th>MD5</th>
+                    <th>Filename</th>
+                    <th>Size (GB)</th>
+                    <th># of Rows</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Version</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody class="text-secondary">
+                {% for val in raw_metadata %}
+                <tr>
+                    <td>{{ val.get('directory') }}</td>
+                    <td>{{ val.get('md5') }}</td>
+                    <td>{{ val.get('filename') }}</td>
+                    <td>{{ val.get('size (GB)') }}</td>
+                    <td>{{ val.get('number of rows') }}</td>
+                    <td>{{ val.get('start date') }}</td>
+                    <td>{{ val.get('end date') }}</td>
+                    <td>{{ val.get('package version') }}</td>
+                    <td><i class="fas fa-trash"></i></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-3">
+            <div class="row">
+                <h4>Add New File</h4>
+            </div>
+            <div class="row">
+                <form method=post enctype=multipart/form-data>
+                    <input type=file name=file>
+                    <input type=submit value=Upload>
+                </form>
+            </div>
+        </div>
+    </div>
+<hr>
+<div class="row">
+    <H4>Priors Data</H4>
+</div>
+<div class="row">
+    <div class="col">
+        <table class="small-txt">
+            <thead>
+            <tr class="bg-secondary text-white">
+                <th>Directory</th>
+                <th>MD5</th>
+                <th>Filename</th>
+                <th>Size (GB)</th>
+                <th># of Rows</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Version</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody class="text-secondary">
+            {% for val in prior_metadata %}
+            <tr>
+                <td>{{ val.get('directory') }}</td>
+                <td>{{ val.get('md5') }}</td>
+                <td>{{ val.get('filename') }}</td>
+                <td>{{ val.get('size (GB)') }}</td>
+                <td>{{ val.get('number of rows') }}</td>
+                <td>{{ val.get('start date') }}</td>
+                <td>{{ val.get('end date') }}</td>
+                <td>{{ val.get('package version') }}</td>
+                <td><i class="fas fa-trash"></i></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-3">
+        <div class="row">
+            <h4>Create New Prior</h4>
+        </div>
+        <div class="row">
+            <form method=post enctype=multipart/form-data>
+                <input type=file name="Choose File">
+                <input type=submit value=Process>
+            </form>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <H4>Predictions</H4>
+</div>
+<div class="row">
+    <div class="col">
+        <table class="small-txt">
+            <thead>
+            <tr class="bg-secondary text-white">
+                <th>Directory</th>
+                <th>MD5</th>
+                <th>Filename</th>
+                <th>Size (GB)</th>
+                <th># of Rows</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Version</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody class="text-secondary">
+            {% for val in pred_metadata %}
+            <tr>
+                <td>{{ val.get('directory') }}</td>
+                <td>{{ val.get('md5') }}</td>
+                <td>{{ val.get('filename') }}</td>
+                <td>{{ val.get('size (GB)') }}</td>
+                <td>{{ val.get('number of rows') }}</td>
+                <td>{{ val.get('start date') }}</td>
+                <td>{{ val.get('end date') }}</td>
+                <td>{{ val.get('package version') }}</td>
+                <td><i class="fas fa-trash"></i></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-3">
+        <div class="row">
+            <h4>Predict New Outliers</h4>
+        </div>
+        <div class="row">
+            <form method=post enctype=multipart/form-data>
+                <input type=file name="Choose File">
+                <input type=submit value=Process>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

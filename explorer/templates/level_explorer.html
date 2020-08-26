@@ -1,0 +1,25 @@
+{% extends 'explorer_base.html' %}
+
+{% block title %}{{trace.level}}{% endblock %}
+
+{% block content %}
+<table class="ctr">
+	<thead>
+	<tr class="bg-secondary text-white">
+		<th>{{trace.child_level}}</th>
+		<th>Value</th>
+		<th>Prediction</th>
+	</tr>
+	</thead>
+	<tbody id="tableData" class="text-secondary">
+	{% for itm in trace.predictions %}
+	<tr>
+		<td><a href="{{ request.path + '/' + itm.get('id') }}">{{ itm.get('id') }}</a></td>
+		<td>{{ itm.get('val') }}</td>
+		<td>{{ itm.get('pred') }}</td>
+	</tr>
+	{% endfor %}
+	</tbody>
+</table>
+
+{% endblock %}

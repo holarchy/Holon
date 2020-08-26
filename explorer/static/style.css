@@ -1,0 +1,15 @@
+table, th, td { border: 1px solid black; width:50%; }
+table { border-collapse: collapse;}
+th, td { padding: 5px; text-align: center; }
+body {padding: 5%}
+.big-table {width:100%;}
+.home-btn {float:right;}
+th{ class: bg-primary}
+.ctr {text-align: center;}
+.lt {text-align: left;}
+.rt {text-align: right;}
+table.ctr {margin-left: auto; margin-right: auto; }
+row.ctr {margin-left: auto; margin-right: auto; }
+.img-ref {width: 80%; margin-left: auto; margin-right: auto;}
+table.small-txt {font-size: 10px;}
+.fa-trash { color:red;}

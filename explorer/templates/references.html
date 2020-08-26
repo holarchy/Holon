@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}References{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <h2 class="ctr">Score</h2>
+        </div>
+        <div class="row">
+            <img class="img-ref"src="{{url_for('static', filename='img/S_categorical_proporition.png')}}" />
+        </div>
+        <div class="row">
+            <img class="img-ref"src="{{url_for('static', filename='img/S_dist_from_mean.png')}}" />
+        </div>
+        <div class="row">
+            <img class="img-ref"src="{{url_for('static', filename='img/S_novelty.png')}}" />
+        </div>
+        <div class="row">
+            <img class="img-ref"src="{{url_for('static', filename='img/S_numeric_ppf.png')}}" />
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <h2 class="ctr">Confidence</h2>
+        </div>
+                <div class="row">
+            <img class="img-ref"src="{{url_for('static', filename='img/C_binary_mean.png')}}" />
+        </div>
+        <div class="row">
+            <img class="img-ref"src="{{url_for('static', filename='img/C_category_equivalent_stdev.png')}}" />
+        </div>
+        <div class="row">
+            <img class="img-ref"src="{{url_for('static', filename='img/C_coeff_of_var.png')}}" />
+        </div>
+        <div class="row">
+            <img class="img-ref"src="{{url_for('static', filename='img/C_num_records.png')}}" />
+        </div>
+    </div>
+</div>
+{% endblock %}

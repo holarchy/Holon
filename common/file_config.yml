@@ -1,0 +1,19 @@
+# configuration for field names and types in biflow file.
+# fields all should be a "type", currently including "categorical", "int", "boolean", "datetime" (v 0.1.1)
+
+nondirectional_fields:
+#  firstpacketttime: 'datetime'
+#  lastpackettime: 'datetime'
+  protocol: 'categorical'
+  category: 'categorical'
+  flowtype: 'categorical'
+directional_fields:
+  subnet: 'categorical'
+  ip: 'categorical'
+  port: 'categorical'
+  packets: 'float'
+  bytes: 'float'
+  flags: 'categorical'
+biflow_src_prfx: 'source'
+biflow_dst_prfx: 'destination'
+hierarchy: ['subnet', 'ip']

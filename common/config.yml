@@ -1,0 +1,22 @@
+# configure type & connection for raw network header data (single .csv or apache spark, or other?)
+# configure database type & connection for newly created data (directory or nosql database, or other?)
+
+#data:
+#  ## type: csv
+#  type: 'csv'
+#  ## type: spark-cluster
+#  type: 'spark-cluster'
+#  other-config-parameters: 'unknown'
+
+explorer_app:
+  # outliers to load upon initializing the app.
+  outliers_path: '~/Data/outlier-predictions-2019_11_12-20_38_38'
+
+database:
+  ## type: directory
+  # where to store newly generated data?
+  path: '~/Data/_ensembles'
+
+#  ## type: nosql
+#  type: 'nosql'
+#  other-config_parameters: 'unknown'
